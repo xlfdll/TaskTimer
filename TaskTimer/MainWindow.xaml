@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
 
         <Viewbox Grid.Row="0">
-            <TextBox x:Name="TimerTextBox" Text="00:25:00" TextChanged="TimerTextBox_TextChanged"/>
+            <TextBox x:Name="TimerTextBox" BorderThickness="0" Text="00:25:00" TextChanged="TimerTextBox_TextChanged"/>
         </Viewbox>
 
         <Grid Grid.Row="1" FocusManager.FocusedElement="{Binding ElementName=TaskTextBox}">
@@ -28,7 +28,7 @@
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
 
-            <TextBox x:Name="TaskTextBox" Grid.Column="0"/>
+            <TextBox x:Name="TaskTextBox" Grid.Column="0" VerticalContentAlignment="Center"/>
             <Button Grid.Column="1" IsDefault="True" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Click="TimerButton_Click">
                 <Image Source="{StaticResource TimerIcon}" Stretch="Uniform"/>
             </Button>
