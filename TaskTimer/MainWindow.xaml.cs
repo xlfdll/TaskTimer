@@ -15,7 +15,7 @@ namespace TaskTimer
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             Timer = new DispatcherTimer()
             {
