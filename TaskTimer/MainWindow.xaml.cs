@@ -70,9 +70,10 @@ namespace TaskTimer
                 Timer.Stop();
             }
 
+            TimerButtonImage.Source = this.FindResource(!Timer.IsEnabled ? "TimerStartIcon" : "TimerStopIcon") as DrawingImage;
+
             TimerTextBox.IsReadOnly = Timer.IsEnabled;
             TaskTextBox.IsReadOnly = Timer.IsEnabled;
-            TimerButtonImage.Source = this.FindResource(!Timer.IsEnabled ? "TimerStartIcon" : "TimerStopIcon") as DrawingImage;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
