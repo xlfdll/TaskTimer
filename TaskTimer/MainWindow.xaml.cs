@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Threading;
 
 namespace TaskTimer
@@ -71,6 +72,7 @@ namespace TaskTimer
 
             TimerTextBox.IsReadOnly = Timer.IsEnabled;
             TaskTextBox.IsReadOnly = Timer.IsEnabled;
+            TimerButtonImage.Source = this.FindResource(!Timer.IsEnabled ? "TimerStartIcon" : "TimerStopIcon") as DrawingImage;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
