@@ -92,6 +92,8 @@ namespace TaskTimer
 
                 TimerTextBox.Text = OriginalTime.ToString();
 
+                TimerButtonImage.Source = this.FindResource("TimerStartIcon") as DrawingImage;
+
                 TimerTextBox.IsReadOnly = Timer.IsEnabled;
                 TaskTextBox.IsReadOnly = Timer.IsEnabled;
             }
