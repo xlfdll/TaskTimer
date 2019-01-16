@@ -33,5 +33,7 @@ Adjust window size or maximize to enlarge time display.
 ## Development Prerequisites
 * Visual Studio 2013+
 
+Before the build, generate-build-number.sh needs to be executed in a Git / Bash shell to generate build information code file (BuildInfo.cs).
+
 ## External Sources
 Timer icons are from [Modern UI Icons](http://modernuiicons.com/), which are licensed under [CC BY-ND 3.0](https://github.com/Templarian/WindowsIcons/blob/master/WindowsPhone/license.txt).
