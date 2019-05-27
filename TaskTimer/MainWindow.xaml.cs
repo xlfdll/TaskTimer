@@ -88,7 +88,8 @@ namespace TaskTimer
 
                 this.Activate();
 
-                MessageBox.Show(this, "Time is up!", this.Title, MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(this, $"Time is up!{Environment.NewLine}@ {DateTime.Now.ToString("HH:mm:ss")}",
+                    this.Title, MessageBoxButton.OK, MessageBoxImage.Information);
 
                 TimerTextBox.Text = OriginalTime.ToString();
 
