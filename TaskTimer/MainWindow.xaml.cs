@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Threading;
+
+using WinForms = System.Windows.Forms;
 
 namespace TaskTimer
 {
@@ -14,6 +17,12 @@ namespace TaskTimer
         public MainWindow()
         {
             InitializeComponent();
+
+            this.NotifyIcon = new WinForms.NotifyIcon()
+            {
+                Icon = new Icon(Application.GetResourceStream(new Uri("pack://application:,,,/TaskTimer.ico")).Stream),
+                Visible = true
+            };
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -88,7 +97,11 @@ namespace TaskTimer
 
                 this.Activate();
 
-                MessageBox.Show(this, $"Time is up!{Environment.NewLine}@ {DateTime.Now.ToString("HH:mm:ss")}",
+                String currentTimeString = DateTime.Now.ToString("HH:mm:ss");
+
+                this.NotifyIcon.ShowBalloonTip(5000, "Time is up!", $"@ {currentTimeString}", WinForms.ToolTipIcon.Info);
+
+                MessageBox.Show(this, $"Time is up!{Environment.NewLine}@ {currentTimeString}",
                     this.Title, MessageBoxButton.OK, MessageBoxImage.Information);
 
                 TimerTextBox.Text = OriginalTime.ToString();
@@ -103,5 +116,6 @@ namespace TaskTimer
         private TimeSpan OriginalTime { get; set; }
         private TimeSpan CurrentTime { get; set; }
         private DispatcherTimer Timer { get; set; }
+        private WinForms.NotifyIcon NotifyIcon { get; }
     }
 }
