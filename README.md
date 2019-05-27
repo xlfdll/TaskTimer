@@ -26,7 +26,7 @@ When time reaches 00:00:00, a message box will pop up to notify you the time is 
        alt="Timer is up">
 </p>
 
-Time will reset afterwards.
+The same message will also show up at Windows taskbar tray icon area. Time will be reset afterwards.
 
 Adjust window size or maximize to enlarge time display.
 
