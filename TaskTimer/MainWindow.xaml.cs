@@ -70,6 +70,8 @@ namespace TaskTimer
                 if (OriginalTime == TimeSpan.Zero)
                 {
                     OriginalTime = CurrentTime;
+
+                    MainTaskbarItemInfo.ProgressValue = 0;
                 }
 
                 Timer.Start();
@@ -91,11 +93,16 @@ namespace TaskTimer
 
             TimerTextBox.Text = CurrentTime.ToString();
 
+            MainTaskbarItemInfo.ProgressValue
+                = (OriginalTime.TotalSeconds - CurrentTime.TotalSeconds) / OriginalTime.TotalSeconds;
+
             if (CurrentTime.Equals(TimeSpan.Zero))
             {
                 Timer.Stop();
 
                 this.Activate();
+
+                MainTaskbarItemInfo.ProgressValue = 1;
 
                 String currentTimeString = DateTime.Now.ToString("HH:mm:ss");
 
@@ -105,6 +112,8 @@ namespace TaskTimer
                     this.Title, MessageBoxButton.OK, MessageBoxImage.Information);
 
                 TimerTextBox.Text = OriginalTime.ToString();
+
+                MainTaskbarItemInfo.ProgressValue = 0;
 
                 TimerButtonImage.Source = this.FindResource("TimerStartIcon") as DrawingImage;
 
