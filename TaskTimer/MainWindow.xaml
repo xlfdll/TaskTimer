@@ -5,6 +5,10 @@
         Width="520" Height="250" MinWidth="300" MinHeight="150"
         WindowStartupLocation="CenterScreen" Loaded="MainWindow_Loaded">
 
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo x:Name="MainTaskbarItemInfo" ProgressState="Normal"/>
+    </Window.TaskbarItemInfo>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
